@@ -1,0 +1,58 @@
+<div ng-controller="MonitorUnionController">
+    <h1 class="page-header">联合查询</h1>
+
+    <form class="form-horizontal">
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label">业务订单号</label>
+            <div class="col-sm-9">
+                <input class="form-control" ng-model="orderNo">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label"></label>
+            <div class="col-sm-9">
+                <button type="button" class="btn btn-primary" ng-click="unionFind()">查询</button>
+            </div>
+        </div>
+
+    </form>
+
+    <h4>业务订单</h4>
+    <table class="table table-bordered">
+        <tr>
+            <th>订单编号</th>
+            <th>订单描述</th>
+            <th>支付渠道</th>
+            <th>订单状态</th>
+        </tr>
+        <tr ng-repeat="order in orders">
+            <td>{{order.orderNo}}</td>
+            <td>{{order.orderDesc}}</td>
+            <td>
+                <span ng-repeat="channel in channels" ng-if="channel.payChannel==order.payChannel">{{channel.payChannelName}}</span>
+            </td>
+            <td>{{orderStatus[order.status]}}</td>
+        </tr>
+    </table>
+
+    <h4>支付订单</h4>
+    <table class="table table-bordered">
+        <tr>
+            <th>业务订单编号</th>
+            <th>支付订单编号</th>
+            <th>支付渠道</th>
+            <th>支付状态</th>
+        </tr>
+        <tr ng-repeat="pay in pays">
+            <td>{{pay.orderNo}}</td>
+            <td>{{pay.payOrderNo}}</td>
+            <td>
+                <span ng-repeat="channel in channels" ng-if="channel.payChannel==pay.payChannel">{{channel.payChannelName}}</span>
+            </td>
+            <td>{{orderStatus[pay.status]}}</td>
+        </tr>
+    </table>
+
+</div>

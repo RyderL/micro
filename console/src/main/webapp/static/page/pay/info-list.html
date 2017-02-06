@@ -1,0 +1,29 @@
+<div ng-controller="PayInfoListController">
+    <h1 class="page-header">订单一览</h1>
+
+    <p>
+        <button class="btn btn-primary" ng-click="list()">刷新列表</button>
+    </p>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>业务订单编号</th>
+            <th>支付订单编号</th>
+            <th>支付渠道</th>
+            <th>支付状态</th>
+            <th>操作</th>
+        </tr>
+        <tr ng-repeat="pay in pays">
+            <td>{{pay.orderNo}}</td>
+            <td>{{pay.payOrderNo}}</td>
+            <td>
+                <span ng-repeat="channel in channels" ng-if="channel.payChannel==pay.payChannel">{{channel.payChannelName}}</span>
+            </td>
+            <td>{{orderStatus[pay.status]}}</td>
+            <td>
+                <button ng-if="pay.type!='LOCAL'" class="btn btn-primary btn-xs" ng-click="delete(pay)">删除</button>
+            </td>
+        </tr>
+    </table>
+
+</div>

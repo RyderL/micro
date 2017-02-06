@@ -1,0 +1,19 @@
+<div ng-controller="PayChannelListController">
+    <h1 class="page-header">支付渠道一览</h1>
+
+    <p>
+        <button class="btn btn-primary" ng-click="list()">刷新列表</button>
+    </p>
+
+    <table class="table table-bordered">
+        <tr>
+            <th>支付渠道编号</th>
+            <th>支付渠道名称</th>
+        </tr>
+        <tr ng-repeat="channel in channels">
+            <td>{{channel.payChannel}}</td>
+            <td>{{channel.payChannelName}}</td>
+        </tr>
+    </table>
+
+</div>
