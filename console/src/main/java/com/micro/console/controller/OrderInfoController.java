@@ -2,6 +2,7 @@ package com.micro.console.controller;
 
 import com.micro.common.domain.CommonResponse;
 import com.micro.common.domain.OrderInfo;
+import com.micro.console.utils.UriUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
@@ -24,18 +25,21 @@ public class OrderInfoController {
     @Value("${order.url}")
     private String orderUrl;
 
+    @Resource
+    private UriUtil uriUtil;
+
     @RequestMapping("/list")
     public CommonResponse list() {
         LOG.info("LOG00060:订单列表开始");
-        CommonResponse commonResponse = restTemplate.getForObject(orderUrl + "/order/info/list", CommonResponse.class);
-        LOG.info("LOG00069:单列表结束:" + commonResponse);
+        CommonResponse commonResponse = restTemplate.getForObject(uriUtil.getUri(orderUrl) + "/order/info/list", CommonResponse.class);
+        LOG.info("LOG00069:订单列表结束:" + commonResponse);
         return commonResponse;
     }
 
     @RequestMapping("/add")
     public CommonResponse add(@RequestBody OrderInfo orderInfo) {
         LOG.info("LOG00080:创建订单开始:{}", orderInfo);
-        CommonResponse commonResponse = restTemplate.postForObject(orderUrl + "/order/info/add", orderInfo, CommonResponse.class);
+        CommonResponse commonResponse = restTemplate.postForObject(uriUtil.getUri(orderUrl) + "/order/info/add", orderInfo, CommonResponse.class);
         LOG.info("LOG00089:创建订单结束:" + commonResponse);
         return commonResponse;
     }
@@ -44,7 +48,7 @@ public class OrderInfoController {
     public CommonResponse delete(@PathVariable(value = "id") String id) {
         LOG.info("LOG00090:删除订单开始:{}", id);
         CommonResponse commonResponse = new CommonResponse();
-        restTemplate.delete(orderUrl + "/order/info/delete/" + id);
+        restTemplate.delete(uriUtil.getUri(orderUrl) + "/order/info/delete/" + id);
         LOG.info("LOG00099:删除订单结束:");
         return commonResponse;
     }
@@ -52,7 +56,7 @@ public class OrderInfoController {
     @RequestMapping("/addAndPay")
     public CommonResponse addAndPay(@RequestBody OrderInfo orderInfo) {
         LOG.info("LOG00180:下单并支付开始:{}", orderInfo);
-        CommonResponse commonResponse = restTemplate.postForObject(orderUrl + "/order/info/addAndPay", orderInfo, CommonResponse.class);
+        CommonResponse commonResponse = restTemplate.postForObject(uriUtil.getUri(orderUrl) + "/order/info/addAndPay", orderInfo, CommonResponse.class);
         LOG.info("LOG00189:下单并支付结束:" + commonResponse);
         return commonResponse;
     }
@@ -60,7 +64,7 @@ public class OrderInfoController {
     @RequestMapping("/find")
     public CommonResponse find(@RequestBody OrderInfo orderInfo) {
         LOG.info("LOG00270:查询订单开始");
-        CommonResponse commonResponse = restTemplate.postForObject(orderUrl + "/order/info/find", orderInfo, CommonResponse.class);
+        CommonResponse commonResponse = restTemplate.postForObject(uriUtil.getUri(orderUrl) + "/order/info/find", orderInfo, CommonResponse.class);
         LOG.info("LOG00279:查询订单结束:" + commonResponse);
         return commonResponse;
     }
