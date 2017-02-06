@@ -6,19 +6,19 @@ http://127.0.0.1:29000/boot/
 #基本业务功能
 ##界面
 ###欢迎界面
-![image](https://github.com/zhchm101/micro/blob/base/screenshots/welcome.png)
+![image](https://github.com/zhchm101/micro/blob/master/screenshots/welcome.png)
 
 ###下单并支付
-![image](https://github.com/zhchm101/micro/blob/base/screenshots/add-order-info.png)
+![image](https://github.com/zhchm101/micro/blob/master/screenshots/add-order-info.png)
 
 ###业务订单列表
-![image](https://github.com/zhchm101/micro/blob/base/screenshots/order-info-list.png)
+![image](https://github.com/zhchm101/micro/blob/master/screenshots/order-info-list.png)
 
 ###支付订单列表
-![image](https://github.com/zhchm101/micro/blob/base/screenshots/pay-info-list.png)
+![image](https://github.com/zhchm101/micro/blob/master/screenshots/pay-info-list.png)
 
 ###联合查询
-![image](https://github.com/zhchm101/micro/blob/base/screenshots/union.png)
+![image](https://github.com/zhchm101/micro/blob/master/screenshots/union.png)
 
 ##业务功能描述
 ###本示例模拟基本的下单支付功能，分为三大模块：
