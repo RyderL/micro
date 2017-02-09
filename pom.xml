@@ -16,6 +16,7 @@
         <module>console</module>
         <module>eureka-server</module>
         <module>config-server</module>
+        <module>turbine</module>
     </modules>
 
     <properties>
@@ -119,11 +120,11 @@
                 <artifactId>bootstrap</artifactId>
                 <version>3.3.5</version>
             </dependency>
-            <dependency>
-                <groupId>org.webjars</groupId>
-                <artifactId>jquery</artifactId>
-                <version>2.1.4</version>
-            </dependency>
+            <!--<dependency>-->
+                <!--<groupId>org.webjars</groupId>-->
+                <!--<artifactId>jquery</artifactId>-->
+                <!--<version>2.1.1</version>-->
+            <!--</dependency>-->
             <dependency>
                 <groupId>org.webjars</groupId>
                 <artifactId>angularjs</artifactId>
