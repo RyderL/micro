@@ -3,20 +3,20 @@
 http://127.0.0.1:29000/boot/
 
 #SPRING CLOUD
-版本号：
-spring cloud: Brixton.SR7
-spring boot: 1.3.8.RELEASE
+版本号：<br>
+spring cloud: Brixton.SR7<br>
+spring boot: 1.3.8.RELEASE<br>
 参考：http://projects.spring.io/spring-cloud/
 
 #应用服务
-boot(29000): 最简单的spring boot示例
-eureka-server(28000): 服务发现
-config-server(28010): 统一配置
-turbin(28020): 监控服务
-zuul(28030): 动态路由
-console(28060): web界面
-order(28070): 订单服务
-pay(28080): 支付服务
+* boot(29000): 最简单的spring boot示例
+* eureka-server(28000): 服务发现
+* config-server(28010): 统一配置
+* turbin(28020): 监控服务
+* zuul(28030): 动态路由
+* console(28060): web界面
+* order(28070): 订单服务
+* pay(28080): 支付服务
 
 #基本业务功能
 ##界面
