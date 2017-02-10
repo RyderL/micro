@@ -14,10 +14,11 @@ app.register.controller('OrderInfoListController', function($scope, $http, $root
 
     $scope.add = function () {
         $http.post("order/info/add", $scope.order).success(function(response){
-            if (response.success) {
-                $scope.orders.push(response.content);
+            if (response.content) {
+                $scope.orders.unshift(response.content);
                 $("#order-modal").modal("hide");
-            } else {
+            }
+            if (response.message) {
                 alert(response.message);
             }
         }).error(function(){
@@ -27,10 +28,11 @@ app.register.controller('OrderInfoListController', function($scope, $http, $root
 
     $scope.addAndPay = function () {
         $http.post("order/info/addAndPay", $scope.order).success(function(response){
-            if (response.success) {
-                $scope.orders.push(response.content);
+            if (response.content) {
+                $scope.orders.unshift(response.content);
                 $("#order-modal").modal("hide");
-            } else {
+            }
+            if (response.message) {
                 alert(response.message);
             }
         }).error(function(){

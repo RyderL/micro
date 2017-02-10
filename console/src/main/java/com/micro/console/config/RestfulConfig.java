@@ -18,8 +18,8 @@ public class RestfulConfig {
 
     private ClientHttpRequestFactory clientHttpRequestFactory() {
         HttpComponentsClientHttpRequestFactory factory = new HttpComponentsClientHttpRequestFactory();
-        factory.setReadTimeout(2000); // 可以根据生产调整
-        factory.setConnectTimeout(2000); // 可以根据生产调整
+        factory.setReadTimeout(10000); // 可以根据生产调整
+        factory.setConnectTimeout(10000); // 可以根据生产调整
         return factory;
     }
 }

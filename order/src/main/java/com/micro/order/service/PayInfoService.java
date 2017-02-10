@@ -2,6 +2,7 @@ package com.micro.order.service;
 
 import com.micro.common.domain.CommonResponse;
 import com.micro.common.domain.PayInfo;
+import com.micro.common.util.ZuulUtil;
 import com.micro.order.utils.UriUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -19,17 +20,20 @@ public class PayInfoService {
     @Resource
     private RestTemplate restTemplate;
 
-    @Value("${pay.url}")
-    private String payUrl;
+//    @Value("${pay.url}")
+//    private String payUrl;
+//
+//    @Resource
+//    private UriUtil uriUtil;
 
     @Resource
-    private UriUtil uriUtil;
+    private ZuulUtil zuulUtil;
 
     public CommonResponse pay(PayInfo payInfo) {
         LOG.info("LOG00200:支付开始:{}", payInfo);
         CommonResponse commonResponse = new CommonResponse();
         try {
-            commonResponse = restTemplate.postForObject(uriUtil.getUri(payUrl) + "/pay/info/pay", payInfo, CommonResponse.class);
+            commonResponse = restTemplate.postForObject(zuulUtil.getPayUrl() + "/pay/info/pay", payInfo, CommonResponse.class);
         } catch (Exception e) {
             commonResponse.setSuccess(false);
             commonResponse.setMessage("调用支付接口异常");

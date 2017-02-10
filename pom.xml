@@ -17,6 +17,7 @@
         <module>eureka-server</module>
         <module>config-server</module>
         <module>turbine</module>
+        <module>zuul</module>
     </modules>
 
     <properties>

@@ -1,6 +1,7 @@
 package com.micro.console.controller;
 
 import com.micro.common.domain.CommonResponse;
+import com.micro.common.util.ZuulUtil;
 import com.micro.console.utils.UriUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import org.slf4j.Logger;
@@ -20,17 +21,24 @@ public class PayChannelController {
     @Resource
     private RestTemplate restTemplate;
 
-    @Value("${pay.url}")
-    private String payUrl;
+//    @Value("${pay.url}")
+//    private String payUrl;
+//
+//    @Value("${zuul.url}")
+//    private String zuulUrl;
+
+//    @Resource
+//    private UriUtil uriUtil;
 
     @Resource
-    private UriUtil uriUtil;
+    private ZuulUtil zuulUtil;
 
     @RequestMapping("/list")
     @HystrixCommand(fallbackMethod = "fallback")
     public CommonResponse list() {
         LOG.info("LOG00140:查询支付渠道开始");
-        CommonResponse commonResponse = restTemplate.getForObject(uriUtil.getUri(payUrl) + "/pay/channel/list", CommonResponse.class);
+//        CommonResponse commonResponse = restTemplate.getForObject(uriUtil.getUri(payUrl) + "/pay/channel/list", CommonResponse.class);
+        CommonResponse commonResponse = restTemplate.getForObject(zuulUtil.getPayUrl() + "/pay/channel/list", CommonResponse.class);
         LOG.info("LOG00149:查询支付渠道结束:" + commonResponse);
         return commonResponse;
     }

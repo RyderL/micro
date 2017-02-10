@@ -77,7 +77,7 @@ public class OrderInfoService {
         if (commonResponse.isSuccess()) {
             orderInfo.setStatus(OrderStatus.S.name());
         } else {
-            if (OrderStatus.F.name().equals(payInfo.getStatus())) {
+            if (payInfo != null && OrderStatus.F.name().equals(payInfo.getStatus())) {
                 orderInfo.setStatus(OrderStatus.F.name());
             } else {
                 orderInfo.setStatus(OrderStatus.P.name());
