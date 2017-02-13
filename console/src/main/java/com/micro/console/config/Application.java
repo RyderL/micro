@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
+import org.springframework.cloud.netflix.feign.EnableFeignClients;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
@@ -20,6 +21,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableHystrix
+@EnableFeignClients
 public class Application extends SpringBootServletInitializer {
 
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);

@@ -25,7 +25,7 @@ public class PayChannelController {
         CommonResponse commonResponse = new CommonResponse();
         List<PayChannel> payChannelList = payChannelService.list();
         commonResponse.setContent(payChannelList);
-        LOG.info("LOG00109:支付渠道列表查询开始：{}", commonResponse);
+        LOG.info("LOG00109:支付渠道列表查询结束：{}", commonResponse);
         return commonResponse;
     }
 
