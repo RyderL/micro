@@ -3,6 +3,7 @@ package com.micro.order.service;
 import com.micro.common.domain.CommonResponse;
 import com.micro.common.domain.PayInfo;
 import com.micro.common.util.ZuulUtil;
+import com.micro.order.config.FeighPayConfig;
 import com.micro.order.utils.UriUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -26,14 +27,17 @@ public class PayInfoService {
 //    @Resource
 //    private UriUtil uriUtil;
 
+//    @Resource
+//    private ZuulUtil zuulUtil;
+
     @Resource
-    private ZuulUtil zuulUtil;
+    private FeighPayConfig.PayClient payClient;
 
     public CommonResponse pay(PayInfo payInfo) {
         LOG.info("LOG00200:支付开始:{}", payInfo);
         CommonResponse commonResponse = new CommonResponse();
         try {
-            commonResponse = restTemplate.postForObject(zuulUtil.getPayUrl() + "/pay/info/pay", payInfo, CommonResponse.class);
+            commonResponse = payClient.payInfoPay(payInfo);
         } catch (Exception e) {
             commonResponse.setSuccess(false);
             commonResponse.setMessage("调用支付接口异常");

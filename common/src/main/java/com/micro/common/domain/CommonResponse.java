@@ -1,33 +1,42 @@
 package com.micro.common.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 import java.util.HashMap;
 import java.util.Map;
 
+@ApiModel(value = "通用结果类", description = "统一返回结果")
 public class CommonResponse<T> {
 
     /**
      * 业务上的成功或失败
      */
+    @ApiModelProperty(value = "业务上的成功或失败")
     private boolean success = true;
 
     /**
      * 返回码
      */
+    @ApiModelProperty(value = "返回码")
     private String code;
 
     /**
      * 返回信息
      */
+    @ApiModelProperty(value = "返回信息")
     private String message;
 
     /**
      * 返回数据
      */
+    @ApiModelProperty(value = "返回数据")
     private Map<String, Object> data = new HashMap<>();
 
     /**
      * 返回泛型数据，自定义类型
      */
+    @ApiModelProperty(value = "返回泛型数据，自定义类型")
     private T content;
 
     public String getCode() {

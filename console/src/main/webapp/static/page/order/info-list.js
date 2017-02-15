@@ -5,7 +5,7 @@ app.register.controller('OrderInfoListController', function($scope, $http, $root
     $scope.order = {};
 
     $scope.list = function () {
-        $http.post("order/info/list").success(function(response){
+        $http.get("order/info/list").success(function(response){
             $scope.orders = response.content;
         }).error(function(){
             alert("系统错误");
@@ -45,7 +45,7 @@ app.register.controller('OrderInfoListController', function($scope, $http, $root
      * @param order
      */
     $scope.delete = function (order) {
-        $http.post("order/info/delete/" + order.id).success(function(response){
+        $http.delete("order/info/delete/" + order.id).success(function(response){
             if (response.success) {
                 $scope.orders.removeObj(order);
             } else {
@@ -57,7 +57,7 @@ app.register.controller('OrderInfoListController', function($scope, $http, $root
     };
 
     $scope.listPayChannel = function () {
-        $http.post("pay/channel/list").success(function(response){
+        $http.get("pay/channel/list").success(function(response){
             $scope.channels = response.content;
         }).error(function(){
             alert("系统错误");

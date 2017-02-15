@@ -28,9 +28,9 @@ public class SpringMvcConfig extends WebMvcConfigurerAdapter {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         if (!registry.hasMappingForPattern("/webjars/**")) {
-            registry.addResourceHandler("/webjars/**").addResourceLocations(
-                    "classpath:/META-INF/resources/webjars/");
+            registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
         }
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
     }
 
 }

@@ -1,29 +1,38 @@
 package com.micro.common.domain;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
+@ApiModel(value = "订单信息类", description = "订单信息")
 public class OrderInfo {
     /**
      * ID
      */
+    @ApiModelProperty(value = "ID")
     private String id;
 
     /**
      * 订单编号
      */
+    @ApiModelProperty(value = "订单编号")
     private String orderNo;
 
     /**
      * 订单描述
      */
+    @ApiModelProperty(value = "订单描述")
     private String orderDesc;
 
     /**
      * 支付渠道编号
      */
+    @ApiModelProperty(value = "支付渠道编号")
     private String payChannel;
 
     /**
      * 订单状态：I：初始，P：处理中，S：成功，F：失败
      */
+    @ApiModelProperty(value = "订单状态：I：初始，P：处理中，S：成功，F：失败")
     private String status;
 
     public String getId() {
