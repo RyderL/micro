@@ -63,16 +63,12 @@ public class OrderInfoController {
     }
 
     @RequestMapping(value = "addAndPay", method = RequestMethod.POST)
-    @ApiOperation(value="下单并支付接口", notes=" <ul>\n" +
-            " <li>console调用order服务下单</li>\n" +
-            " <li>order服务调用pay服务支付</li>\n" +
-            " <li>pay返回order支付结果</li>\n" +
-            " <li>order返回console订单结果</li>\n" +
-            " <pre>orderInfo{\n" +
-            "  \"orderDesc\": \"一大箱苹果\",\n" +
-            "  \"0000000002\": payChannel\n" +
-            "}</pre>\n" +
-            " </ul>")
+    @ApiOperation(value="下单并支付接口", notes="console调用order服务下单, order服务调用pay服务支付, " +
+            "pay返回order支付结果, order返回console订单结果1, 示例：\n\r" +
+            "{\n\r" +
+            "  \"orderDesc\": \"一大箱苹果\",\n\r" +
+            "  \"payChannel\": \"0000000002\"\n\r" +
+            "}")
     public CommonResponse addAndPay(@ApiParam(required=true, name="orderInfo", value="订单信息") @RequestBody OrderInfo orderInfo) {
         LOG.info("LOG00180:下单并支付开始:{}", orderInfo);
         CommonResponse commonResponse = orderClient.addAndPay(orderInfo);
