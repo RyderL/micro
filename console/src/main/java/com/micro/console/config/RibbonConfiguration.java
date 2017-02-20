@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
- * 如果使用了zuul，此配置不需要修改，同样能起作用
+ * 如果使用了feign，此配置不需要修改，同样能起作用
  */
 @Configuration
 public class RibbonConfiguration {

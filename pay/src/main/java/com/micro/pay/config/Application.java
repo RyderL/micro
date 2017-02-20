@@ -8,6 +8,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 import org.springframework.cloud.netflix.hystrix.EnableHystrix;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.core.env.Environment;
 import org.springframework.util.StringUtils;
@@ -20,6 +21,7 @@ import java.net.UnknownHostException;
 @SpringBootApplication
 @EnableEurekaClient
 @EnableHystrix
+@EnableHystrixDashboard
 public class Application  {
 
     private static final Logger LOG = LoggerFactory.getLogger(Application.class);
